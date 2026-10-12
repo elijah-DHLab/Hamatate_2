@@ -1,8 +1,14 @@
 {
   "project": "המטאטא",
-  "version": "2.3",
+  "version": "2.4",
   "catalog": "corpus/data/corpus_index.json",
   "editionRegistry": "corpus/data/edition_registry.json",
   "defaultProduction": "A228401",
-  "notes": "Project routing is configured around production manifests. The current research engine is still A228401-specific; generic runtime switching requires additional implementation."
+  "notes": "The knowledge layer is provider-based and source-version checked. The legacy reader still has A228401-specific code; full multi-edition runtime switching requires its separate refactoring.",
+  "knowledgeProvider": {
+    "mode": "static",
+    "registry": {
+      "A228401": "productions/A228401/data/knowledge.json"
+    }
+  }
 }

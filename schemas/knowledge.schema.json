@@ -1,0 +1,213 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Hamatate normalized knowledge payload 1.0",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "productionId",
+    "source",
+    "categories",
+    "terms",
+    "notes",
+    "observations"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": "hamatate.knowledge/1.0"
+    },
+    "productionId": {
+      "type": "string",
+      "pattern": "^A[0-9]+$"
+    },
+    "source": {
+      "type": "object",
+      "required": [
+        "xmlSha256"
+      ],
+      "properties": {
+        "xmlSha256": {
+          "type": "string",
+          "pattern": "^[a-f0-9]{64}$"
+        }
+      }
+    },
+    "categories": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "label",
+          "sourceLabel",
+          "kind",
+          "color",
+          "termIds"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "label": {
+            "type": "string"
+          },
+          "sourceLabel": {
+            "type": "string"
+          },
+          "kind": {
+            "type": "string"
+          },
+          "color": {
+            "type": "string",
+            "pattern": "^#[a-fA-F0-9]{6}$"
+          },
+          "termIds": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "terms": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "label",
+          "kind",
+          "categoryIds"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "label": {
+            "type": "string"
+          },
+          "kind": {
+            "enum": [
+              "explicit-note-subject",
+              "anchor-context"
+            ]
+          },
+          "categoryIds": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    },
+    "notes": {
+      "type": "object",
+      "additionalProperties": {
+        "type": "object",
+        "required": [
+          "text"
+        ],
+        "properties": {
+          "text": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "observations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": [
+          "id",
+          "productionId",
+          "noteId",
+          "categoryId",
+          "termId",
+          "anchor",
+          "basis"
+        ],
+        "properties": {
+          "id": {
+            "type": "string"
+          },
+          "productionId": {
+            "type": "string"
+          },
+          "noteId": {
+            "type": "string"
+          },
+          "categoryId": {
+            "type": "string"
+          },
+          "termId": {
+            "type": "string"
+          },
+          "basis": {
+            "const": "explicit-editorial-note"
+          },
+          "anchor": {
+            "type": "object",
+            "required": [
+              "paragraphId",
+              "unitId",
+              "offset",
+              "precision",
+              "range"
+            ],
+            "properties": {
+              "paragraphId": {
+                "type": "string"
+              },
+              "unitId": {
+                "type": "string"
+              },
+              "offset": {
+                "type": "integer",
+                "minimum": 0
+              },
+              "precision": {
+                "const": "footnote-point"
+              },
+              "range": {
+                "anyOf": [
+                  {
+                    "type": "null"
+                  },
+                  {
+                    "type": "object",
+                    "required": [
+                      "start",
+                      "end",
+                      "exact"
+                    ],
+                    "properties": {
+                      "start": {
+                        "type": "integer",
+                        "minimum": 0
+                      },
+                      "end": {
+                        "type": "integer",
+                        "minimum": 0
+                      },
+                      "exact": {
+                        "type": "string"
+                      }
+                    }
+                  }
+                ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "next": {
+      "type": [
+        "string",
+        "null"
+      ]
+    }
+  }
+}

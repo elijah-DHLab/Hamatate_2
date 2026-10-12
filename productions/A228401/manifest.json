@@ -11,7 +11,8 @@
     "edition": "data/edition.json",
     "tagging": "data/tagging_layer.json",
     "networks": "data/content_networks.json",
-    "quality": "data/quality_report.json"
+    "quality": "data/quality_report.json",
+    "knowledge": "data/knowledge.json"
   },
   "media": [
     "media/program1.jpg",
