@@ -1,0 +1,1211 @@
+{
+  "stats": {
+    "sheet_count": 17,
+    "md_T": 21,
+    "xml_T": 21,
+    "S": 12,
+    "PS": 11,
+    "P": 6,
+    "roles": 42,
+    "referenced_role_ids": 42,
+    "role_marker_occurrences": 887,
+    "persons": 18,
+    "performers_with_id": 11,
+    "roles_without_actor": 8,
+    "named_entity_spans": 18,
+    "xml_parts": 22,
+    "paragraphs": 2732,
+    "nonempty_paragraphs": 1879,
+    "runs": 12457,
+    "characters": 84555,
+    "footnotes": 529,
+    "footnote_references": 529,
+    "comments": 1,
+    "movement_events": 15,
+    "valid_MOVEs": 1,
+    "valid_SWAPs": 2,
+    "invalid_SWAPs": 1,
+    "media_included": 5,
+    "media_quarantined": 1,
+    "colors": {
+      "FF0000": 165,
+      "None": 5658,
+      "538135": 571,
+      "009E47": 27,
+      "0070C0": 2808,
+      "808080": 1327,
+      "C45911": 353,
+      "C55A11": 846,
+      "00B0F0": 79,
+      "EE0000": 80,
+      "3C2AE6": 1,
+      "000000": 2,
+      "C00000": 5,
+      "CC00FF": 1
+    },
+    "highlights": {
+      "None": 11468,
+      "magenta": 92,
+      "cyan": 42,
+      "yellow": 27,
+      "green": 294
+    },
+    "semantic_runs": {
+      "page_marker": 92,
+      "hand": 677,
+      "heading": 42,
+      "entity": 27,
+      "stage": 294,
+      "editorial": 1327,
+      "text_del": 319,
+      "dram_del": 1199,
+      "within_deleted": 79,
+      "music": 5
+    },
+    "missing_footnotes": [],
+    "unreferenced_footnotes": [],
+    "missing_T": [],
+    "orphan_T": [],
+    "role_scene_cross": []
+  },
+  "issues": [
+    {
+      "id": "av-conflict-14",
+      "severity": "error",
+      "title": "שיוך סותר של חומר שמע",
+      "detail": "A=A228401; שם=והילד ישנו; S=A229141-S9",
+      "source": {
+        "sheet": "אודיו ווידאו",
+        "row": 14,
+        "values": [
+          "A228401",
+          "והילד ישנו",
+          "שיר געגועים",
+          "A229141-S9",
+          "אודיו",
+          "זמרשת",
+          "https://www.zemereshet.co.il/m/song.asp?id=785",
+          null,
+          "כתוב באתר שהביצוע הוא של יעקב טימן ושמואל רודנסקי, אך שרה איתם גם אחת מחברות הלהקה שלא מצוין שמה."
+        ],
+        "cells": {
+          "A14": "A228401",
+          "B14": "והילד ישנו",
+          "C14": "שיר געגועים",
+          "D14": "A229141-S9",
+          "E14": "אודיו",
+          "F14": "זמרשת",
+          "G14": "https://www.zemereshet.co.il/m/song.asp?id=785",
+          "I14": "כתוב באתר שהביצוע הוא של יעקב טימן ושמואל רודנסקי, אך שרה איתם גם אחת מחברות הלהקה שלא מצוין שמה."
+        },
+        "links": {
+          "G14": "https://www.zemereshet.co.il/m/song.asp?id=785"
+        },
+        "direct_match": true
+      },
+      "impact": "הרשומה נשמרת בדוח ואינה מצורפת אוטומטית להצגה."
+    },
+    {
+      "id": "residual-struct",
+      "severity": "warning",
+      "title": "טקסט נוסף בשורה של קוד מבנה",
+      "detail": "[{'p': 1, 't': 'A228401-T1', 'text': '10', 'raw': '10<A228401-T1>'}]",
+      "source": {
+        "xml_p": 1
+      },
+      "impact": "הטקסט נשמר כחריגה גלויה; אין למחוק אותו בעת חילוץ היחידה."
+    },
+    {
+      "id": "swap-56",
+      "severity": "error",
+      "title": "זוג SWAP שלא ניתן להפעיל בבטחה",
+      "detail": "סימון פתיחה .1-2 נסגר עם .2-1; המקור אינו מתוקן אוטומטית.",
+      "source": {
+        "xml_p": 2500,
+        "t": "A228401-T18",
+        "events": [
+          {
+            "p": 2500,
+            "t": "A228401-T18",
+            "a": 51,
+            "b": 74,
+            "raw": "[[SWAP-edit-V1-56.1-2]]",
+            "close": false,
+            "kind": "SWAP",
+            "reason": "edit",
+            "version": "1",
+            "key": "56.1-2"
+          },
+          {
+            "p": 2500,
+            "t": "A228401-T18",
+            "a": 78,
+            "b": 102,
+            "raw": "[[/SWAP-edit-V1-56.2-1]]",
+            "close": true,
+            "kind": "SWAP",
+            "reason": "edit",
+            "version": "1",
+            "key": "56.2-1"
+          },
+          {
+            "p": 2500,
+            "t": "A228401-T18",
+            "a": 104,
+            "b": 127,
+            "raw": "[[SWAP-edit-V1-56.2-1]]",
+            "close": false,
+            "kind": "SWAP",
+            "reason": "edit",
+            "version": "1",
+            "key": "56.2-1"
+          },
+          {
+            "p": 2500,
+            "t": "A228401-T18",
+            "a": 133,
+            "b": 157,
+            "raw": "[[/SWAP-edit-V1-56.2-1]]",
+            "close": true,
+            "kind": "SWAP",
+            "reason": "edit",
+            "version": "1",
+            "key": "56.2-1"
+          }
+        ]
+      },
+      "impact": "החילוף מוצג אך אינו מופעל במצב הערוך."
+    },
+    {
+      "id": "duplicate-page-link",
+      "severity": "warning",
+      "title": "קישור כפול של מקטע לעמוד",
+      "detail": "[{'t': 'A228401-T15', 'page': 45.0, 'rows': [306, 307]}]",
+      "source": {
+        "sheet": "מספרי עמודים"
+      },
+      "impact": "מפת הכיסוי סופרת את העמוד פעם אחת, אך שתי הרשומות נשמרות."
+    },
+    {
+      "id": "page-assignment-mismatch",
+      "severity": "warning",
+      "title": "אי-התאמה בין מיפויי עמודים",
+      "detail": "[{'t': 'A228401-T9', 'T_pages': [22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33], 'page_sheet': [22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33], 'XML_markers': [23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33]}]",
+      "source": {
+        "sheet": "מספרי עמודים",
+        "comparisons": [
+          {
+            "t": "A228401-T9",
+            "T_pages": [
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31,
+              32,
+              33
+            ],
+            "page_sheet": [
+              22,
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31,
+              32,
+              33
+            ],
+            "XML_markers": [
+              23,
+              24,
+              25,
+              26,
+              27,
+              28,
+              29,
+              30,
+              31,
+              32,
+              33
+            ]
+          }
+        ]
+      },
+      "impact": "להציג את שלוש מערכות המיקום בנפרד, בלי לייחס מספר עמוד שהסקנו למקור."
+    },
+    {
+      "id": "cell-תפקידים בהצגהD33",
+      "severity": "warning",
+      "title": "תא שגיאה במיפתוח",
+      "detail": "#REF!",
+      "source": {
+        "sheet": "תפקידים בהצגה",
+        "cell": "D33"
+      },
+      "impact": "התא מוצג כשגיאה; אינו הופך לערך היסטורי."
+    },
+    {
+      "id": "cell-תפקידים בהצגהD34",
+      "severity": "warning",
+      "title": "תא שגיאה במיפתוח",
+      "detail": "#REF!",
+      "source": {
+        "sheet": "תפקידים בהצגה",
+        "cell": "D34"
+      },
+      "impact": "התא מוצג כשגיאה; אינו הופך לערך היסטורי."
+    },
+    {
+      "id": "cell-תפקידים בהצגהD35",
+      "severity": "warning",
+      "title": "תא שגיאה במיפתוח",
+      "detail": "#REF!",
+      "source": {
+        "sheet": "תפקידים בהצגה",
+        "cell": "D35"
+      },
+      "impact": "התא מוצג כשגיאה; אינו הופך לערך היסטורי."
+    },
+    {
+      "id": "cell-תפקידים מקושרים בהצגהH268",
+      "severity": "warning",
+      "title": "תא שגיאה במיפתוח",
+      "detail": "#N/A",
+      "source": {
+        "sheet": "תפקידים מקושרים בהצגה",
+        "cell": "H268"
+      },
+      "impact": "התא מוצג כשגיאה; אינו הופך לערך היסטורי."
+    },
+    {
+      "id": "cell-תפקידים מקושרים בהצגהH269",
+      "severity": "warning",
+      "title": "תא שגיאה במיפתוח",
+      "detail": "#N/A",
+      "source": {
+        "sheet": "תפקידים מקושרים בהצגה",
+        "cell": "H269"
+      },
+      "impact": "התא מוצג כשגיאה; אינו הופך לערך היסטורי."
+    },
+    {
+      "id": "cell-תפקידים מקושרים בהצגהH270",
+      "severity": "warning",
+      "title": "תא שגיאה במיפתוח",
+      "detail": "#N/A",
+      "source": {
+        "sheet": "תפקידים מקושרים בהצגה",
+        "cell": "H270"
+      },
+      "impact": "התא מוצג כשגיאה; אינו הופך לערך היסטורי."
+    },
+    {
+      "id": "cell-תפקידים מקושרים בהצגהH271",
+      "severity": "warning",
+      "title": "תא שגיאה במיפתוח",
+      "detail": "#N/A",
+      "source": {
+        "sheet": "תפקידים מקושרים בהצגה",
+        "cell": "H271"
+      },
+      "impact": "התא מוצג כשגיאה; אינו הופך לערך היסטורי."
+    },
+    {
+      "id": "cell-תפקידים מקושרים בהצגהH272",
+      "severity": "warning",
+      "title": "תא שגיאה במיפתוח",
+      "detail": "#N/A",
+      "source": {
+        "sheet": "תפקידים מקושרים בהצגה",
+        "cell": "H272"
+      },
+      "impact": "התא מוצג כשגיאה; אינו הופך לערך היסטורי."
+    },
+    {
+      "id": "cell-תפקידים מקושרים בהצגהH273",
+      "severity": "warning",
+      "title": "תא שגיאה במיפתוח",
+      "detail": "#N/A",
+      "source": {
+        "sheet": "תפקידים מקושרים בהצגה",
+        "cell": "H273"
+      },
+      "impact": "התא מוצג כשגיאה; אינו הופך לערך היסטורי."
+    },
+    {
+      "id": "cell-תפקידים מקושרים בהצגהH274",
+      "severity": "warning",
+      "title": "תא שגיאה במיפתוח",
+      "detail": "#N/A",
+      "source": {
+        "sheet": "תפקידים מקושרים בהצגה",
+        "cell": "H274"
+      },
+      "impact": "התא מוצג כשגיאה; אינו הופך לערך היסטורי."
+    },
+    {
+      "id": "cell-תפקידים מקושרים בהצגהH275",
+      "severity": "warning",
+      "title": "תא שגיאה במיפתוח",
+      "detail": "#N/A",
+      "source": {
+        "sheet": "תפקידים מקושרים בהצגה",
+        "cell": "H275"
+      },
+      "impact": "התא מוצג כשגיאה; אינו הופך לערך היסטורי."
+    },
+    {
+      "id": "front-target",
+      "severity": "info",
+      "title": "T1 מפנה להצגה ולא ליחידת S",
+      "detail": "A228401-T1 -> A228401",
+      "source": {
+        "sheet": "T - תכולת מחזה",
+        "row": 307,
+        "values": [
+          "A228401-T1",
+          "כי תצא למלחמה",
+          1.0,
+          1.0,
+          "כי תצא למלחמה",
+          "A228401",
+          "שער כללי",
+          0.0,
+          null,
+          0.0,
+          0.0,
+          null,
+          0.0,
+          null,
+          null,
+          "שם התכנית מרפרר לפסוק מספר דברים: \"כִּי תֵצֵא לַמִּלְחָמָה עַל אֹיְבֶיךָ וּנְתָנוֹ יְהוָה אֱלֹהֶיךָ בְּיָדֶךָ וְשָׁבִיתָ שִׁבְיוֹ.\" (דברים, פרק כ\"א, פסוק י').",
+          null,
+          0.0
+        ],
+        "cells": {
+          "A307": "A228401-T1",
+          "B307": "כי תצא למלחמה",
+          "C307": 1.0,
+          "D307": 1.0,
+          "E307": "כי תצא למלחמה",
+          "F307": "A228401",
+          "G307": "שער כללי",
+          "H307": 0.0,
+          "J307": 0.0,
+          "K307": 0.0,
+          "M307": 0.0,
+          "P307": "שם התכנית מרפרר לפסוק מספר דברים: \"כִּי תֵצֵא לַמִּלְחָמָה עַל אֹיְבֶיךָ וּנְתָנוֹ יְהוָה אֱלֹהֶיךָ בְּיָדֶךָ וְשָׁבִיתָ שִׁבְיוֹ.\" (דברים, פרק כ\"א, פסוק י').",
+          "R307": 0.0
+        },
+        "direct_match": true
+      },
+      "impact": "להבחין בשער כללי; זה אינו בהכרח קישור שבור."
+    },
+    {
+      "id": "ps-numbering",
+      "severity": "info",
+      "title": "מספור פנימי שונה מן המספור המודפס",
+      "detail": "11 רשומות PS הכוללות שתי הפסקות לעומת תשעה קטעים ממוספרים.",
+      "source": {},
+      "impact": "אין להשתמש במספר הסצינה הפנימי כמספר המודפס בתכנייה."
+    },
+    {
+      "id": "inventory-program",
+      "severity": "question",
+      "title": "מספר פריטי תכנייה לעומת גרסאות ממופתחות",
+      "detail": "בתכולת תיקים: 2 פריטים, 4 עמודים; ב-P נמצאת רק משפחת P1 עם 6 יחידות גרפיות.",
+      "source": {
+        "sheet": "תכולת תיקים",
+        "row": 25,
+        "values": [
+          "A228401",
+          "כי תצא למלחמה",
+          228401.0,
+          null,
+          "תוכניה",
+          4.0,
+          2.0
+        ],
+        "cells": {
+          "A25": "A228401",
+          "B25": "כי תצא למלחמה",
+          "C25": 228401.0,
+          "E25": "תוכניה",
+          "F25": 4.0,
+          "G25": 2.0
+        },
+        "direct_match": true
+      },
+      "impact": "אין להסיק שקיימות שתי גרסאות תוכן שונות; נדרש לברר משמעות יחידת הספירה."
+    },
+    {
+      "id": "inventory-coverage",
+      "severity": "question",
+      "title": "מלאי חומר מול מפתוח מפורט",
+      "detail": "המלאי מונה 5 כרזות ו-3 פריטי עיתונות; בגיליונות הייעודיים אין רשומות של ההצגה.",
+      "source": {},
+      "impact": "מלאי אינו זהה לנגישות קבצים או למפתוח של כל פריט."
+    },
+    {
+      "id": "tender-source",
+      "severity": "question",
+      "title": "הופעת הטנדר בטקסט לעומת הערת המיפתוח",
+      "detail": "T16 כולל \"הטנדר נוסע!\" וגם \"טנדר\". גוף השיר אינו מצוי שם. ב-T/S/PS יש הערה \"לא נמצא בטקסט המודפס\".",
+      "source": {
+        "t": "A228401-T16",
+        "xml_p": 2235
+      },
+      "impact": "ההערה והמקור מוצגים זה לצד זה; לא טוענים שאין בטקסט כל זכר לשיר."
+    },
+    {
+      "id": "program-lyrics-link",
+      "severity": "info",
+      "title": "יחידות שיר בתכנייה ללא שדה S מאוכלס",
+      "detail": "P1.4/P1.5/P1.6 מזוהות בהערות, אך שדה הקישור H ריק.",
+      "source": {
+        "sheet": "P - תכולת תוכניה",
+        "cells": "G246:H248"
+      },
+      "impact": "קשרים לפי הכותרת מוצגים כזיהוי מן ההערה, לא כמפתח זר מפורש."
+    },
+    {
+      "id": "music-absence",
+      "severity": "info",
+      "title": "לא נמצאו רשומות M של ההצגה",
+      "detail": "אין התאמה למזהי A/T/S או לשם ההצגה בגיליון M.",
+      "source": {
+        "sheet": "M-מוזיקה"
+      },
+      "impact": "זהו היעדר מפתוח, לא הוכחה שלא הייתה מוזיקה או שלא שרדו תווים."
+    },
+    {
+      "id": "ps-migration-notes",
+      "severity": "warning",
+      "title": "תוכן נלווה ב-PS אינו בהכרח חלק מן הסצנה באותה שורה",
+      "detail": "בשורות 51–52 של PS, עמודת S כוללת פזמונים מתוך פלוגה דום ובשבילך עד חצי המלכות; כותרת העמודה מורה להעביר אותם למילות השיר בתכנייה.",
+      "source": {
+        "sheet": "PS - תכולת סצנות תוכניה",
+        "cells": "S51:S52"
+      },
+      "impact": "אין לייחס את הפזמונים ל-S1 ול-S2 רק משום שהם נמצאים באותן שורות; היחס צריך להיבדק מול P והצילום."
+    }
+  ],
+  "entities": [
+    {
+      "p": 6,
+      "t": "A228401-T1",
+      "a": 19,
+      "b": 37,
+      "raw": "<הלל ברגמן-אביחנן>",
+      "name": "הלל ברגמן-אביחנן",
+      "person": "per014",
+      "resolution": "unique_exact_name"
+    },
+    {
+      "p": 6,
+      "t": "A228401-T1",
+      "a": 50,
+      "b": 63,
+      "raw": "<יעקב אורלנד>",
+      "name": "יעקב אורלנד",
+      "person": "per002",
+      "resolution": "unique_exact_name"
+    },
+    {
+      "p": 7,
+      "t": "A228401-T1",
+      "a": 15,
+      "b": 28,
+      "raw": "<סמי גרונימן>",
+      "name": "סמי גרונימן",
+      "person": "per004",
+      "resolution": "unique_exact_name"
+    },
+    {
+      "p": 7,
+      "t": "A228401-T1",
+      "a": 43,
+      "b": 56,
+      "raw": "<לאה גולדברג>",
+      "name": "לאה גולדברג",
+      "person": "per012",
+      "resolution": "unique_exact_name"
+    },
+    {
+      "p": 7,
+      "t": "A228401-T1",
+      "a": 68,
+      "b": 81,
+      "raw": "<יצחק נוז'יק>",
+      "name": "יצחק נוז'יק",
+      "person": "per001",
+      "resolution": "unique_exact_name"
+    },
+    {
+      "p": 8,
+      "t": "A228401-T1",
+      "a": 21,
+      "b": 34,
+      "raw": "<משה וילנסקי>",
+      "name": "משה וילנסקי",
+      "person": "per019",
+      "resolution": "unique_exact_name"
+    },
+    {
+      "p": 9,
+      "t": "A228401-T1",
+      "a": 18,
+      "b": 31,
+      "raw": "<יצחק נוז'יק>",
+      "name": "יצחק נוז'יק",
+      "person": "per001",
+      "resolution": "unique_exact_name"
+    },
+    {
+      "p": 336,
+      "t": "A228401-T5",
+      "a": 4,
+      "b": 19,
+      "raw": "<שמואל רודנסקי>",
+      "name": "שמואל רודנסקי",
+      "person": "per005",
+      "resolution": "unique_exact_name"
+    },
+    {
+      "p": 347,
+      "t": "A228401-T5",
+      "a": 2,
+      "b": 13,
+      "raw": "<יעקב טימן>",
+      "name": "יעקב טימן",
+      "person": "per011",
+      "resolution": "unique_exact_name"
+    },
+    {
+      "p": 376,
+      "t": "A228401-T5",
+      "a": 3,
+      "b": 14,
+      "raw": "<יעקב טימן>",
+      "name": "יעקב טימן",
+      "person": "per011",
+      "resolution": "unique_exact_name"
+    },
+    {
+      "p": 392,
+      "t": "A228401-T5",
+      "a": 6,
+      "b": 21,
+      "raw": "<שמואל רודנסקי>",
+      "name": "שמואל רודנסקי",
+      "person": "per005",
+      "resolution": "unique_exact_name"
+    },
+    {
+      "p": 404,
+      "t": "A228401-T5",
+      "a": 8,
+      "b": 23,
+      "raw": "<שמואל רודנסקי>",
+      "name": "שמואל רודנסקי",
+      "person": "per005",
+      "resolution": "unique_exact_name"
+    },
+    {
+      "p": 415,
+      "t": "A228401-T5",
+      "a": 2,
+      "b": 13,
+      "raw": "<יעקב טימן>",
+      "name": "יעקב טימן",
+      "person": "per011",
+      "resolution": "unique_exact_name"
+    },
+    {
+      "p": 2228,
+      "t": "A228401-T15",
+      "a": 11,
+      "b": 22,
+      "raw": "<משה חורגל>",
+      "name": "משה חורגל",
+      "person": "per007",
+      "resolution": "unique_exact_name"
+    },
+    {
+      "p": 2229,
+      "t": "A228401-T15",
+      "a": 6,
+      "b": 16,
+      "raw": "<יעקב אבא>",
+      "name": "יעקב אבא",
+      "person": "per006",
+      "resolution": "unique_exact_name"
+    },
+    {
+      "p": 2230,
+      "t": "A228401-T15",
+      "a": 19,
+      "b": 34,
+      "raw": "<שמואל רודנסקי>",
+      "name": "שמואל רודנסקי",
+      "person": "per005",
+      "resolution": "unique_exact_name"
+    },
+    {
+      "p": 2231,
+      "t": "A228401-T15",
+      "a": 17,
+      "b": 29,
+      "raw": "<זלמן לביוש>",
+      "name": "זלמן לביוש",
+      "person": "per009",
+      "resolution": "unique_exact_name"
+    },
+    {
+      "p": 2232,
+      "t": "A228401-T15",
+      "a": 15,
+      "b": 26,
+      "raw": "<יעקב טימן>",
+      "name": "יעקב טימן",
+      "person": "per011",
+      "resolution": "unique_exact_name"
+    }
+  ],
+  "persons": [
+    "per001",
+    "per002",
+    "per004",
+    "per005",
+    "per006",
+    "per007",
+    "per008",
+    "per009",
+    "per010",
+    "per011",
+    "per012",
+    "per013",
+    "per014",
+    "per015",
+    "per016",
+    "per017",
+    "per019",
+    "per021"
+  ],
+  "segments": [
+    {
+      "id": "A228401-T1",
+      "start": 1,
+      "end": 14,
+      "paragraph_count": 14,
+      "nonempty_paragraphs": 13,
+      "char_count": 311,
+      "role_codes": 0,
+      "role_ids": [],
+      "footnote_count": 0,
+      "categories": {},
+      "semantics_runs": {
+        "page_marker": 1,
+        "hand": 30,
+        "heading": 1,
+        "entity": 9
+      }
+    },
+    {
+      "id": "A228401-T2",
+      "start": 15,
+      "end": 19,
+      "paragraph_count": 5,
+      "nonempty_paragraphs": 5,
+      "char_count": 50,
+      "role_codes": 0,
+      "role_ids": [],
+      "footnote_count": 2,
+      "categories": {
+        "תקשורת המונים": 2
+      },
+      "semantics_runs": {
+        "page_marker": 1,
+        "hand": 2,
+        "heading": 2
+      }
+    },
+    {
+      "id": "A228401-T3",
+      "start": 20,
+      "end": 321,
+      "paragraph_count": 302,
+      "nonempty_paragraphs": 190,
+      "char_count": 11470,
+      "role_codes": 117,
+      "role_ids": [
+        "A228401-R1",
+        "A228401-R2",
+        "A228401-R3",
+        "A228401-R4"
+      ],
+      "footnote_count": 73,
+      "categories": {
+        "נשק": 8,
+        "מושג": 21,
+        "תקשורת המונים": 21,
+        "אישים": 17,
+        "מקום": 5,
+        "מוסד": 4
+      },
+      "semantics_runs": {
+        "page_marker": 6,
+        "hand": 31,
+        "heading": 1,
+        "stage": 57,
+        "editorial": 97,
+        "text_del": 24,
+        "dram_del": 199
+      }
+    },
+    {
+      "id": "A228401-T4",
+      "start": 322,
+      "end": 326,
+      "paragraph_count": 5,
+      "nonempty_paragraphs": 5,
+      "char_count": 57,
+      "role_codes": 0,
+      "role_ids": [],
+      "footnote_count": 1,
+      "categories": {},
+      "semantics_runs": {
+        "page_marker": 1,
+        "hand": 2,
+        "heading": 2
+      }
+    },
+    {
+      "id": "A228401-T5",
+      "start": 327,
+      "end": 421,
+      "paragraph_count": 95,
+      "nonempty_paragraphs": 80,
+      "char_count": 2063,
+      "role_codes": 0,
+      "role_ids": [],
+      "footnote_count": 21,
+      "categories": {
+        "מושג": 6,
+        "מקום": 6,
+        "מוסד": 2,
+        "אישים": 5
+      },
+      "semantics_runs": {
+        "page_marker": 3,
+        "heading": 1,
+        "hand": 45,
+        "entity": 12,
+        "stage": 8,
+        "text_del": 3,
+        "dram_del": 31,
+        "editorial": 2
+      }
+    },
+    {
+      "id": "A228401-T6",
+      "start": 422,
+      "end": 426,
+      "paragraph_count": 5,
+      "nonempty_paragraphs": 5,
+      "char_count": 55,
+      "role_codes": 0,
+      "role_ids": [],
+      "footnote_count": 0,
+      "categories": {},
+      "semantics_runs": {
+        "page_marker": 1,
+        "hand": 2,
+        "heading": 2
+      }
+    },
+    {
+      "id": "A228401-T7",
+      "start": 427,
+      "end": 807,
+      "paragraph_count": 381,
+      "nonempty_paragraphs": 247,
+      "char_count": 14142,
+      "role_codes": 138,
+      "role_ids": [
+        "A228401-R10",
+        "A228401-R5",
+        "A228401-R6",
+        "A228401-R7",
+        "A228401-R8",
+        "A228401-R9"
+      ],
+      "footnote_count": 50,
+      "categories": {
+        "מושג": 24,
+        "מקום": 3,
+        "מוסד": 3,
+        "אישים": 1,
+        "אקטואליה": 1
+      },
+      "semantics_runs": {
+        "page_marker": 8,
+        "dram_del": 405,
+        "editorial": 157,
+        "text_del": 82,
+        "hand": 95,
+        "within_deleted": 44,
+        "stage": 23
+      }
+    },
+    {
+      "id": "A228401-T8",
+      "start": 808,
+      "end": 812,
+      "paragraph_count": 5,
+      "nonempty_paragraphs": 5,
+      "char_count": 65,
+      "role_codes": 0,
+      "role_ids": [],
+      "footnote_count": 1,
+      "categories": {},
+      "semantics_runs": {
+        "page_marker": 1,
+        "hand": 3,
+        "heading": 3
+      }
+    },
+    {
+      "id": "A228401-T9",
+      "start": 813,
+      "end": 1368,
+      "paragraph_count": 556,
+      "nonempty_paragraphs": 331,
+      "char_count": 21013,
+      "role_codes": 236,
+      "role_ids": [
+        "A228401-R11",
+        "A228401-R12",
+        "A228401-R13",
+        "A228401-R14",
+        "A228401-R15",
+        "A228401-R16"
+      ],
+      "footnote_count": 75,
+      "categories": {
+        "מקום": 11,
+        "מושג": 21,
+        "תרבות": 4,
+        "אישים": 6,
+        "מוסד": 15,
+        "נשק": 3,
+        "תקשורת המונים": 7
+      },
+      "semantics_runs": {
+        "page_marker": 11,
+        "editorial": 133,
+        "dram_del": 387,
+        "hand": 122,
+        "within_deleted": 32,
+        "text_del": 119,
+        "stage": 77
+      }
+    },
+    {
+      "id": "A228401-T10",
+      "start": 1369,
+      "end": 1373,
+      "paragraph_count": 5,
+      "nonempty_paragraphs": 5,
+      "char_count": 50,
+      "role_codes": 0,
+      "role_ids": [],
+      "footnote_count": 0,
+      "categories": {},
+      "semantics_runs": {
+        "page_marker": 1,
+        "hand": 2,
+        "heading": 2
+      }
+    },
+    {
+      "id": "A228401-T11",
+      "start": 1374,
+      "end": 1726,
+      "paragraph_count": 353,
+      "nonempty_paragraphs": 264,
+      "char_count": 6983,
+      "role_codes": 93,
+      "role_ids": [
+        "A228401-R35",
+        "A228401-R36",
+        "A228401-R37",
+        "A228401-R38",
+        "A228401-R39",
+        "A228401-R40",
+        "A228401-R41",
+        "A228401-R42"
+      ],
+      "footnote_count": 53,
+      "categories": {
+        "מושג": 22,
+        "אישים": 2,
+        "מוסד": 4,
+        "תקשורת המונים": 1,
+        "תרבות": 3
+      },
+      "semantics_runs": {
+        "page_marker": 4,
+        "editorial": 68,
+        "stage": 26,
+        "hand": 64,
+        "text_del": 31,
+        "dram_del": 7,
+        "within_deleted": 1
+      }
+    },
+    {
+      "id": "A228401-T12",
+      "start": 1727,
+      "end": 1731,
+      "paragraph_count": 5,
+      "nonempty_paragraphs": 5,
+      "char_count": 62,
+      "role_codes": 0,
+      "role_ids": [],
+      "footnote_count": 0,
+      "categories": {},
+      "semantics_runs": {
+        "page_marker": 1,
+        "hand": 2,
+        "heading": 2
+      }
+    },
+    {
+      "id": "A228401-T13",
+      "start": 1732,
+      "end": 1846,
+      "paragraph_count": 115,
+      "nonempty_paragraphs": 90,
+      "char_count": 2429,
+      "role_codes": 24,
+      "role_ids": [
+        "A228401-R17",
+        "A228401-R18"
+      ],
+      "footnote_count": 25,
+      "categories": {
+        "מושג": 8,
+        "תרבות": 2,
+        "מקום": 4,
+        "אישים": 4,
+        "מוסד": 2,
+        "נשק": 1
+      },
+      "semantics_runs": {
+        "page_marker": 2,
+        "hand": 44,
+        "heading": 3,
+        "editorial": 76,
+        "dram_del": 11,
+        "within_deleted": 1,
+        "stage": 4,
+        "text_del": 3
+      }
+    },
+    {
+      "id": "A228401-T14",
+      "start": 1847,
+      "end": 1851,
+      "paragraph_count": 5,
+      "nonempty_paragraphs": 5,
+      "char_count": 48,
+      "role_codes": 0,
+      "role_ids": [],
+      "footnote_count": 3,
+      "categories": {
+        "תרבות": 2
+      },
+      "semantics_runs": {
+        "page_marker": 1,
+        "hand": 3,
+        "heading": 3
+      }
+    },
+    {
+      "id": "A228401-T15",
+      "start": 1852,
+      "end": 2234,
+      "paragraph_count": 383,
+      "nonempty_paragraphs": 292,
+      "char_count": 7927,
+      "role_codes": 108,
+      "role_ids": [
+        "A228401-R19",
+        "A228401-R20",
+        "A228401-R21",
+        "A228401-R22",
+        "A228401-R23"
+      ],
+      "footnote_count": 71,
+      "categories": {
+        "תרבות": 13,
+        "תקשורת המונים": 4,
+        "מושג": 8,
+        "אישים": 5
+      },
+      "semantics_runs": {
+        "page_marker": 6,
+        "heading": 3,
+        "hand": 175,
+        "stage": 45,
+        "text_del": 20,
+        "editorial": 356,
+        "dram_del": 53,
+        "music": 5,
+        "entity": 6
+      }
+    },
+    {
+      "id": "A228401-T16",
+      "start": 2235,
+      "end": 2239,
+      "paragraph_count": 5,
+      "nonempty_paragraphs": 5,
+      "char_count": 46,
+      "role_codes": 0,
+      "role_ids": [],
+      "footnote_count": 0,
+      "categories": {},
+      "semantics_runs": {
+        "page_marker": 1,
+        "hand": 2,
+        "heading": 2
+      }
+    },
+    {
+      "id": "A228401-T17",
+      "start": 2240,
+      "end": 2244,
+      "paragraph_count": 5,
+      "nonempty_paragraphs": 5,
+      "char_count": 69,
+      "role_codes": 0,
+      "role_ids": [],
+      "footnote_count": 0,
+      "categories": {},
+      "semantics_runs": {
+        "page_marker": 1,
+        "hand": 6,
+        "heading": 6,
+        "text_del": 1
+      }
+    },
+    {
+      "id": "A228401-T18",
+      "start": 2245,
+      "end": 2621,
+      "paragraph_count": 377,
+      "nonempty_paragraphs": 237,
+      "char_count": 15940,
+      "role_codes": 154,
+      "role_ids": [
+        "A228401-R24",
+        "A228401-R25",
+        "A228401-R26",
+        "A228401-R27",
+        "A228401-R28",
+        "A228401-R29"
+      ],
+      "footnote_count": 149,
+      "categories": {
+        "מושג": 34,
+        "מוסד": 3,
+        "מקום": 26,
+        "אישים": 19,
+        "נשק": 2
+      },
+      "semantics_runs": {
+        "page_marker": 24,
+        "text_del": 34,
+        "heading": 3,
+        "editorial": 436,
+        "stage": 47,
+        "hand": 29,
+        "dram_del": 106,
+        "within_deleted": 1
+      }
+    },
+    {
+      "id": "A228401-T19",
+      "start": 2622,
+      "end": 2626,
+      "paragraph_count": 5,
+      "nonempty_paragraphs": 5,
+      "char_count": 47,
+      "role_codes": 0,
+      "role_ids": [],
+      "footnote_count": 0,
+      "categories": {},
+      "semantics_runs": {
+        "page_marker": 3,
+        "hand": 2,
+        "heading": 2
+      }
+    },
+    {
+      "id": "A228401-T20",
+      "start": 2627,
+      "end": 2727,
+      "paragraph_count": 101,
+      "nonempty_paragraphs": 81,
+      "char_count": 1687,
+      "role_codes": 17,
+      "role_ids": [
+        "A228401-R30",
+        "A228401-R31",
+        "A228401-R32",
+        "A228401-R33",
+        "A228401-R34"
+      ],
+      "footnote_count": 5,
+      "categories": {
+        "אישים": 1
+      },
+      "semantics_runs": {
+        "page_marker": 12,
+        "heading": 3,
+        "hand": 15,
+        "text_del": 2,
+        "stage": 7,
+        "editorial": 2
+      }
+    },
+    {
+      "id": "A228401-T21",
+      "start": 2728,
+      "end": 2732,
+      "paragraph_count": 5,
+      "nonempty_paragraphs": 4,
+      "char_count": 41,
+      "role_codes": 0,
+      "role_ids": [],
+      "footnote_count": 0,
+      "categories": {},
+      "semantics_runs": {
+        "page_marker": 3,
+        "hand": 1,
+        "heading": 1
+      }
+    }
+  ]
+}

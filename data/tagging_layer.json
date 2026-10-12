@@ -1,0 +1,63 @@
+{
+  "source": {
+    "name": "additional_tagging.xlsx",
+    "sha256": "f9b2a1f6b1347d5a9345948d5a9f16b51b7f37b1a93a02d004ffe05634fb213b"
+  },
+  "schema": {
+    "תיוגי שפה": [
+      "מס'",
+      "מיקום",
+      "סוג",
+      "שפות",
+      "טקסט",
+      "נכתב במקור",
+      "תרגום",
+      "הערה",
+      "נשמר",
+      "מזהה מיקום"
+    ],
+    "הערות שוליים": [
+      "מס'",
+      "מיקום",
+      "סוג",
+      "תוכן",
+      "נשמר",
+      "מזהה מיקום"
+    ],
+    "מונחים": [
+      "מס'",
+      "מיקום",
+      "מונח",
+      "טקסט",
+      "קטגוריות",
+      "רשתות",
+      "נשמר",
+      "מזהה מיקום"
+    ]
+  },
+  "records": [],
+  "counts": {
+    "תיוגי שפה": 0,
+    "הערות שוליים": 0,
+    "מונחים": 0
+  },
+  "diagnostics": [
+    {
+      "sheet": "תיוגי שפה",
+      "severity": "info",
+      "message": "only a header row; no annotation records"
+    },
+    {
+      "sheet": "הערות שוליים",
+      "severity": "info",
+      "message": "only a header row; no annotation records"
+    },
+    {
+      "sheet": "מונחים",
+      "severity": "info",
+      "message": "only a header row; no annotation records"
+    }
+  ],
+  "status": "empty_source",
+  "alignment_status_counts": {}
+}

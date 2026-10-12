@@ -1,0 +1,18 @@
+{
+  "version": "2.1",
+  "editions": [
+    {
+      "productionId": "A228401",
+      "status": "available",
+      "sourceXml": "sources/ki_tetze_23_9_26.xml",
+      "editionData": "data/edition.json",
+      "tagging": "data/tagging_layer.json",
+      "contentNetworks": "data/content_networks.json",
+      "media": [
+        "media/program1.jpg",
+        "media/program2.jpg"
+      ]
+    }
+  ],
+  "note": "Other A records are catalog only. Current edition engine requires further parameterization before loading new XMLs."
+}

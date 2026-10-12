@@ -1,0 +1,19 @@
+{
+  "project": "ארכיון המטאטא",
+  "version": "2.2",
+  "source_snapshot": "2026-10-12",
+  "productions_source": "sources/master_MD_snapshot.xlsx",
+  "production_current": "A228401",
+  "current_edition": "data/edition.json",
+  "corpus_index": "data/corpus_index.json",
+  "content_index": "data/content_networks.json",
+  "source_xml": "sources/ki_tetze_23_9_26.xml",
+  "editorial_key": "sources/editorial_key.docx",
+  "additional_annotation_file": "sources/additional_tagging.xlsx",
+  "media_scans": [
+    "media/program1.jpg",
+    "media/program2.jpg"
+  ],
+  "logo": "media/hamatate_historic_mark.png",
+  "notes": "Only one full linked edition is available; the other A productions are catalog entries. Three further annotation worksheets remain without data rows."
+}
