@@ -1,0 +1,10 @@
+{
+  "version": "2.3",
+  "editions": [
+    {
+      "productionId": "A228401",
+      "status": "available",
+      "manifest": "productions/A228401/manifest.json"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "productionId": "A228401",
+  "title": "כי תצא למלחמה",
+  "status": "available",
+  "sources": {
+    "wordXml": "sources/ki_tetze_23_9_26.xml",
+    "editorialKey": "sources/editorial_key.docx",
+    "taggingSource": "sources/additional_tagging.xlsx"
+  },
+  "data": {
+    "edition": "data/edition.json",
+    "tagging": "data/tagging_layer.json",
+    "networks": "data/content_networks.json",
+    "quality": "data/quality_report.json"
+  },
+  "media": [
+    "media/program1.jpg",
+    "media/program2.jpg"
+  ],
+  "note": "Manifest paths are relative to this production directory."
+}
