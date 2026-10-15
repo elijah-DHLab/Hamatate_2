@@ -1,0 +1,137 @@
+{
+  "checks": [
+    [
+      "Localization runtime initialized",
+      "PASS"
+    ],
+    [
+      "Knowledge data initialized",
+      "PASS"
+    ],
+    [
+      "English toggle and navigation",
+      "PASS"
+    ],
+    [
+      "English archive header",
+      "PASS"
+    ],
+    [
+      "About translation",
+      "PASS"
+    ],
+    [
+      "Reader toolbar English",
+      "PASS"
+    ],
+    [
+      "Read source preserved Hebrew",
+      "PASS"
+    ],
+    [
+      "Reader section controls translated",
+      "PASS"
+    ],
+    [
+      "Distant toolbar English",
+      "PASS"
+    ],
+    [
+      "Graph available",
+      "PASS"
+    ],
+    [
+      "Whole SVG zoom enlarges chart",
+      "PASS"
+    ],
+    [
+      "Uniform svg aspect ratio",
+      "PASS"
+    ],
+    [
+      "Whole zoom not using inner plot scale",
+      "PASS"
+    ],
+    [
+      "Labels enlarge independently",
+      "PASS"
+    ],
+    [
+      "Whole SVG zoom out restores",
+      "PASS"
+    ],
+    [
+      "Relations graph appears",
+      "PASS"
+    ],
+    [
+      "Relations width grows",
+      "PASS"
+    ],
+    [
+      "Relations height grows",
+      "PASS"
+    ],
+    [
+      "Relations preserve proportion",
+      "PASS"
+    ],
+    [
+      "Hebrew source term stays original",
+      "PASS"
+    ],
+    [
+      "Change back Hebrew",
+      "PASS"
+    ],
+    [
+      "Hebrew source preserved",
+      "PASS"
+    ],
+    [
+      "Actor SVG wrapped in scroll viewport",
+      "PASS"
+    ],
+    [
+      "Actor graph width grows",
+      "PASS"
+    ],
+    [
+      "Actor graph height grows",
+      "PASS"
+    ],
+    [
+      "Actor SVG uniform scale",
+      "PASS"
+    ],
+    [
+      "Read is still operational",
+      "PASS"
+    ],
+    [
+      "Footnotes unchanged",
+      "PASS"
+    ],
+    [
+      "Materials retained",
+      "PASS"
+    ],
+    [
+      "Audit retained",
+      "PASS"
+    ],
+    [
+      "Dynamic toolbar retains English after rerender",
+      "PASS"
+    ],
+    [
+      "Distant English after nav re-render",
+      "PASS"
+    ],
+    [
+      "No JS errors",
+      "PASS"
+    ]
+  ],
+  "errors": []
+}

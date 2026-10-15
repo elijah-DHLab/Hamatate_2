@@ -16,7 +16,27 @@ const programOrder=()=>values(D.program_items).sort((a,b)=>a.order-b.order);
 const txts=sid=>values(D.text_records).filter(t=>t.target===sid).sort((a,b)=>tidSort(a.id,b.id));
 const psFor=sid=>programOrder().filter(p=>p.target===sid);
 const htmlURL=u=>/^https?:\/\//i.test(String(u))?esc(u):'#';
-function linkify(s){return String(s??'').split(/(https?:\/\/[^\s<>]+)/g).map(v=>/^https?:\/\//.test(v)?`<a href="${htmlURL(v)}" target="_blank" rel="noopener noreferrer">קישור במקור</a>`:esc(v)).join('')}
+/** Render link labels instead of raw URLs; preserve original prose and punctuation.
+ * URL length is never hidden in the title attribute, so the full target remains
+ * discoverable to keyboard/screen-reader users. HTML is escaped exactly once.
+ */
+function linkify(s){
+ const input=String(s??""), rx=/https?:\/\/[^\s<>"\u200e\u200f]+/gi;
+ let out="",last=0,n=0;
+ for(const m of input.matchAll(rx)){
+  out+=esc(input.slice(last,m.index));
+  let raw=m[0],trail="";
+  while(raw&&/[),.;:!?\]\}\u05c3\u05c0]/.test(raw.slice(-1))){trail=raw.slice(-1)+trail;raw=raw.slice(0,-1);}
+  const url=raw.replace(/&amp;/gi,"&").replace(/&#38;/gi,"&");
+  if(/^https?:\/\//i.test(url)){
+   n++;const href=htmlURL(url);let host="";
+   try{host=new URL(url).hostname.replace(/^www\./,"");}catch{host="מקור חיצוני";}
+   out+=`<a class="source-link-short" href="${href}" target="_blank" rel="noopener noreferrer" title="${esc(url)}" aria-label="פתיחת מקור חיצוני ${n}: ${esc(host)}"><span aria-hidden="true">↗</span> מקור ${n} <small>${esc(host)}</small></a>`;
+  }else out+=esc(raw);
+  out+=esc(trail);last=m.index+m[0].length;
+ }
+ return out+esc(input.slice(last));
+}
 function safeLink(url,title){return `<a class="btn" href="${htmlURL(url)}" target="_blank" rel="noopener noreferrer">${esc(title)}</a>`}
 function toast(t){$('#toast').textContent=t;$('#toast').classList.add('on');setTimeout(()=>$('#toast').classList.remove('on'),2200)}
 function pop(kicker,html){$('#detailKicker').textContent=kicker;$('#detailBody').innerHTML=html; const title=$('#detailBody h2');if(title){title.id='detailTitle';$('#detail').setAttribute('aria-labelledby','detailTitle')}if(!$('#detail').open)$('#detail').showModal();$('#detail').scrollTop=0}

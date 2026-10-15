@@ -1,0 +1,54 @@
+
+/* V2.6: map and label magnification, source-term diagram zoom */
+.k24-zoom-tools{align-items:center;flex-wrap:wrap;max-width:calc(100% - 18px);background:#fcf8efe8;padding:5px;border:1px solid #d9cbb2;border-radius:7px;box-shadow:0 3px 10px #1b384318;gap:4px}
+.k26-zoom-title{font:700 11px/1.4 Arial,sans-serif;color:#455c61;margin:0 5px;white-space:nowrap}
+.k24-zoom-tools button{min-width:33px;min-height:30px;font-weight:700;font-size:13px}
+.k24-root-title{font-size:calc(15px * var(--k26-label-scale,1.15))}
+.k24-source-label{font-size:calc(11.5px * var(--k26-label-scale,1.15))}
+.k24-term text{font-size:calc(15px * var(--k26-label-scale,1.15))}
+.k24-band-label{font-size:calc(12px * var(--k26-label-scale,1.15))}
+.k24-unit text{font-size:calc(11px * var(--k26-label-scale,1.15))}
+.k25-diagram{width:calc(100% * var(--k26-relation-zoom,1));min-width:calc(1080px * var(--k26-relation-zoom,1));max-width:none}
+.k26-relations-zoom{display:flex;align-items:center;gap:7px;flex-wrap:wrap;margin:9px 0;padding:6px 9px;border:1px solid #d7d1c3;background:#f6f3eb;border-radius:6px;font:12px Arial,sans-serif;color:#4b6570}
+.k26-relations-zoom button{border:1px solid #beb9ad;border-radius:5px;background:white;padding:5px 10px;font-weight:700;min-width:33px}
+.k26-relations-zoom output{min-width:46px;text-align:center;font-weight:700}
+.k26-relations-zoom span{font-size:11px;color:#697b80}
+@media(max-width:790px){.k24-zoom-tools{position:sticky;top:0;left:0;width:max-content;max-width:100%}.k24-visual{overflow:auto}.k26-relations-zoom{position:sticky;top:0;z-index:3}}
+/* Language chooser integrates with the site navigation. Corpus values stay source-language. */
+.k26-language-switch{display:flex;gap:3px;padding:3px;white-space:nowrap;background:#f0eee6;border:1px solid #d5cdbc;border-radius:8px;align-items:center;direction:ltr;flex-shrink:0}
+.k26-language-switch button{border:0;border-radius:5px;background:transparent;padding:6px 9px;font:700 12px/1.4 Arial,sans-serif;color:#63767a;min-height:29px}
+.k26-language-switch button.active{background:#234758;color:#fff;box-shadow:0 1px 5px #1d334125}
+html[lang=en] .top,html[lang=en] .v21-shell,html[lang=en] .v22-about,html[lang=en] .k24-research,html[lang=en] .panel{direction:ltr;text-align:left}
+html[lang=en] .reader,html[lang=en] .reader .text-segment,html[lang=en] .text-segment .text-body,html[lang=en] .fn,html[lang=en] .source-heading,html[lang=en] .v22-note-list,html[lang=en] .v22-margin-note,html[lang=en] .k25-text-terms,html[lang=en] .k24-evidence-card blockquote{direction:rtl;text-align:right}
+html[lang=en] .k24-svg,html[lang=en] .k25-diagram{direction:ltr}
+html[lang=en] .k24-selection-panel,html[lang=en] .k24-evidence,html[lang=en] .k24-method{direction:ltr;text-align:left}
+html[lang=en] .k24-palette,.k24-term,.k24-rootnode,.k25-category-node,.k25-term-node{unicode-bidi:plaintext}
+html[lang=en] .k24-swatch span,html[lang=en] .k24-evidence-card h3,html[lang=en] .k24-evidence-card blockquote{unicode-bidi:plaintext}
+html[lang=en] .v21-archive-grid .v21-production-card h3,html[lang=en] .v21-catalog h1,html[lang=en] .v21-context strong{direction:rtl;unicode-bidi:plaintext}
+html[lang=en] .k25-evidence-note{border-right:0;border-left:3px solid #b59c75}
+html[lang=en] .v22-side-notes{border-right:0!important;border-left:3px solid #ae8550!important}
+@media(max-width:1000px){.k26-language-switch{margin:4px auto}}
+@media(max-width:480px){.k26-language-switch button{padding:5px 7px}}
+
+/* Other maps: use the same zoom affordance without changing source geometry. */
+.k26-other-zoom{display:flex;gap:7px;align-items:center;flex-wrap:wrap;background:#f6f1e6;border:1px solid #d8cbb7;border-radius:7px;padding:6px 9px;width:max-content;max-width:100%;margin:8px 12px;position:relative;z-index:2;direction:ltr;font:12px Arial,sans-serif}
+.k26-other-zoom b{font-size:11px;color:#3b5a69}
+.k26-other-zoom output{min-width:43px;text-align:center;color:#345763}
+.k26-other-zoom button{min-height:28px;min-width:32px;padding:5px 9px;background:#fffdf6;border-radius:5px;border:1px solid #cfc1aa;font-weight:700}
+.ct-stream,.stage-network-panel{overflow:auto}
+.ct-net-scroll,.v2-scroll{overflow:auto}
+
+/* Uniform optical zoom for all SVG maps: preserve chart aspect ratio, text AND geometry. */
+.k24-visual{overflow:auto!important;scrollbar-color:#bdad91 #f5eddf}
+#k24Svg{display:block;max-height:none!important;aspect-ratio:auto}
+.k26-chart-shell{min-width:0;max-width:100%;width:100%;overflow:hidden;background:transparent}
+.k26-chart-viewport{width:100%;min-width:0;max-width:100%;overflow:auto;max-height:min(78vh,1100px);scrollbar-color:#b8a98d #f6f0e5;overscroll-behavior:contain}
+.k26-chart-viewport svg{display:block;flex-shrink:0;overflow:visible}
+.k26-other-zoom{position:relative;z-index:3;direction:inherit;margin:6px auto 8px;padding:7px 11px;min-height:38px}
+.k26-other-zoom button{min-width:35px;min-height:32px}
+.k26-other-zoom output{direction:ltr}
+.k24-zoom-tools output{min-width:43px;text-align:center;font-size:12px;font-weight:700;color:#345763;direction:ltr}
+.k25-diagram{height:auto!important;max-height:none!important}
+html[lang=en] .v21-production-nav,html[lang=en] .v21-global-nav,html[lang=en] .v2-world,html[lang=en] .stage-shell{direction:ltr;text-align:left}
+html[lang=en] .reader .text-body,html[lang=en] .reader .text-segment h2,html[lang=en] .reader .text-segment .t-meta{direction:rtl;text-align:right}
+html[lang=en] .k24-selection-panel .k24-swatch,html[lang=en] .v2-tag,html[lang=en] .stage-card,html[lang=en] .k25-term-node text,html[lang=en] .k25-category-node text{unicode-bidi:plaintext}

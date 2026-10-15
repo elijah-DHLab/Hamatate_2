@@ -6,7 +6,7 @@
 const K24={
  ready:false,error:null,data:null,roots:new Map(),children:new Map(),observations:new Map(),byP:new Map(),
  expanded:new Set(),excluded:new Set(),showNetworks:true,showWriting:false,showSpeakers:true,readSelectionOpen:false,disclosures:new Map(),
- view:"graph",words:false,metric:"coverage",scope:"paragraph",wordLimit:6,
+ view:"graph",labels:1.15,words:false,metric:"coverage",scope:"paragraph",wordLimit:6,
  focus:null,evidencePage:0,cursor:-1,positions:new Map(),transform:{x:0,y:0,k:1},timer:null,
  writing:new Set(["hand","dram_del","text_del","within_deleted","stage","heading","editorial","music"]),
  viewFilter:"",initialized:false
@@ -406,13 +406,13 @@ renderDistant=function(){
  k24InitControls();k24Draw();
 };
 function k24SvgBase(w=1080,h=560){
- return `<div class="k24-zoom-tools"><button data-k24-zoom="in" aria-label="הגדלה">+</button><button data-k24-zoom="out" aria-label="הקטנה">−</button><button data-k24-zoom="reset">התאמה למסך</button></div><svg class="k24-svg" id="k24Svg" viewBox="0 0 ${w} ${h}" role="img" aria-label="רשתות התוכן ומופעיהן במחזה" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="k24PaperLines" width="18" height="18" patternUnits="userSpaceOnUse"><path d="M 0 18 L 18 18" stroke="#87795f" opacity=".05"/></pattern></defs><rect width="${w}" height="${h}" fill="url(#k24PaperLines)"/><g id="k24Plot"></g></svg>`;
+ return `<div class="k24-zoom-tools" role="group" aria-label="שליטת הגדלה בתרשים"><span class="k26-zoom-title">מפה</span><button data-k24-zoom="out" aria-label="הקטנת המפה">−</button><button data-k24-zoom="in" aria-label="הגדלת המפה">+</button><button data-k24-zoom="reset">התאמה</button><output data-k24-full-zoom aria-live="polite">100%</output><span class="k26-zoom-title">טקסט</span><button data-k24-zoom="label-out" aria-label="הקטנת הכיתובים">א−</button><button data-k24-zoom="label-in" aria-label="הגדלת הכיתובים">א+</button><button data-k24-zoom="label-reset" aria-label="איפוס גודל הכיתובים">100%</button></div><svg class="k24-svg" id="k24Svg" viewBox="0 0 ${w} ${h}" role="img" aria-label="רשתות התוכן ומופעיהן במחזה" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="k24PaperLines" width="18" height="18" patternUnits="userSpaceOnUse"><path d="M 0 18 L 18 18" stroke="#87795f" opacity=".05"/></pattern></defs><rect width="${w}" height="${h}" fill="url(#k24PaperLines)"/><g id="k24Plot"></g></svg>`;
 }
 function k24NodeElement(n){
  const active=K24.focus?.id===n.layer||K24.focus?.id===n.child||K24.focus?.id===n.t;
  if(n.kind==="unit")return `<g class="k24-node k24-unit ${V2.units.size&&!V2.units.has(n.t)?"outside-scope":""} ${V2.units.has(n.t)?"chosen":""}" data-k24-node="${k24Esc(n.id)}" data-k24-unit="${k24Esc(n.t)}" tabindex="0" role="button" transform="translate(${n.x},${n.y})"><rect x="-17" y="-17" width="34" height="34" rx="7"/><text y="4" text-anchor="middle">${k24Esc(short(n.t))}</text><title>${k24Esc(n.title)} · לחיצה בוחרת/מסירה יחידה; הראיות מתעדכנות למטה</title></g>`;
- if(n.kind==="term")return `<g class="k24-node k24-term ${n.context?"context":""} ${active?"focus":""}" data-k24-node="${k24Esc(n.id)}" data-k24-wordnode="${k24Esc(n.child)}" tabindex="0" role="button" transform="translate(${n.x},${n.y})" style="--k-color:${n.color}"><rect x="${-n.w/2}" y="-15" width="${n.w}" height="30" rx="14"/><text text-anchor="middle" y="4">${k24Esc(n.title.length>21?n.title.slice(0,20)+"…":n.title)}</text><title>${k24Esc(n.title)} · ${n.hits.length} ראיות${n.context?" · מילים ליד ההפניה; לא מושג שזוהה בידי המהדירים":""}</title></g>`;
- return `<g class="k24-node k24-rootnode ${active?"focus":""}" data-k24-node="${k24Esc(n.id)}" data-k24-focus="${k24Esc(n.layer)}" tabindex="0" role="button" transform="translate(${n.x},${n.y})" style="--k-color:${n.color}"><circle r="${n.r+5}" class="k24-halo"/><circle r="${n.r}" fill="${n.color}"/><text y="${-n.r-10}" text-anchor="middle" class="k24-root-title">${k24Esc(n.title)}</text><text y="5" text-anchor="middle" class="k24-root-count">${k24ValLabel(n.value)}</text><text y="${n.r+16}" text-anchor="middle" class="k24-source-label">${n.basis}</text><title>${k24Esc(n.title)} · ${k24MetricName()}: ${k24ValLabel(n.value)}</title></g>`;
+ if(n.kind==="term")return `<g class="k24-node k24-term ${n.context?"context":""} ${active?"focus":""}" data-k24-node="${k24Esc(n.id)}" data-k24-wordnode="${k24Esc(n.child)}" tabindex="0" role="button" transform="translate(${n.x},${n.y})" style="--k-color:${n.color}"><rect x="${-n.w/2}" y="-15" width="${n.w}" height="30" rx="14"/><text text-anchor="middle" y="4">${k24Esc(n.title.length>24?n.title.slice(0,23)+"…":n.title)}</text><title>${k24Esc(n.title)} · ${n.hits.length} ראיות${n.context?" · מילים ליד ההפניה; לא מושג שזוהה בידי המהדירים":""}</title></g>`;
+ return `<g class="k24-node k24-rootnode ${active?"focus":""}" data-k24-node="${k24Esc(n.id)}" data-k24-focus="${k24Esc(n.layer)}" tabindex="0" role="button" transform="translate(${n.x},${n.y})" style="--k-color:${n.color}"><circle r="${n.r+5}" class="k24-halo"/><circle r="${n.r}" fill="${n.color}"/><text y="${-n.r-10}" text-anchor="middle" class="k24-root-title">${k24Esc(n.title)}</text><text y="5" text-anchor="middle" class="k24-root-count">${k24ValLabel(n.value)}</text><text y="${n.r+16}" text-anchor="middle" class="k24-source-label"><title>${k24Esc(n.basis)}</title>${n.layer?.startsWith("knowledge:")?"הערה מסווגת":n.layer?.startsWith("network:")?"חיפוש מילולי":"שכבת מקור"}</text><title>${k24Esc(n.title)} · ${k24MetricName()}: ${k24ValLabel(n.value)}</title></g>`;
 }
 function k24EdgePath(e){
  const a=e.a,b=e.b;
@@ -431,9 +431,9 @@ function k24Graph(){
    const keep=eligible.filter(pinned), other=eligible.filter(t=>!pinned(t));
    return [...keep,...other.slice(0,Math.max(0,K24.wordLimit-keep.length))].map(t=>({...t,root:r}));
  }):[];
- const termRows=Math.max(1,Math.ceil(termsShown.length/7));
- const termTop=105+rows*115,unitsY=K24.words?termTop+termRows*53+65:termTop+160,h=Math.max(560,unitsY+90);
- document.getElementById("k24Visual").innerHTML=k24SvgBase(w,h);
+ const termRows=Math.max(1,Math.ceil(termsShown.length/5));
+ const termTop=105+rows*115,unitsY=K24.words?termTop+termRows*66+70:termTop+160,h=Math.max(560,unitsY+90);
+ document.getElementById("k24Visual").innerHTML=k24SvgBase(w,h);document.getElementById("k24Visual").style.setProperty("--k26-label-scale",K24.labels);
  const nodes=[],edges=[],max=Math.max(1,...roots.map(k24RootValue)),unitNodes=new Map();
  roots.forEach((r,i)=>{
   const col=i%columns,row=Math.floor(i/columns),x=w-90-(col+.5)*(w-180)/columns,y=80+row*115;
@@ -448,8 +448,8 @@ function k24Graph(){
  });
  if(K24.words){
   termsShown.forEach((t,i)=>{
-   const col=i%7,row=Math.floor(i/7),n={id:"w:"+t.id,child:t.id,kind:"term",title:t.label,color:t.root.color,
-    hits:t.hits,context:t.kind==="anchor-context",x:w-92-col*(w-180)/6,y:termTop+row*53,w:Math.min(143,Math.max(58,t.label.length*6.2+22))};
+   const col=i%5,row=Math.floor(i/5),n={id:"w:"+t.id,child:t.id,kind:"term",title:t.label,color:t.root.color,
+    hits:t.hits,context:t.kind==="anchor-context",x:w-105-col*(w-210)/4,y:termTop+row*66,w:Math.min(182,Math.max(90,t.label.length*9+28))};
    nodes.push(n);const rn=nodes.find(x=>x.id===t.root.id);
    edges.push({a:rn,b:n,color:rn.color,count:t.hits.length,kind:"membership",term:t.id,root:rn.layer});
    for(const tid of seq){
@@ -480,7 +480,7 @@ function k24Graph(){
 function plain24(s){return s.replace(/<\/?[A-Za-z0-9_.-]+>/g,"").replace(/\[\[.*?\]\]|\/{4}/g,"").replace(/\s+/g," ").trim();}
 function k24Flow(){
  const roots=k24Active(),seq=k24Seq(),w=1080,h=490,left=60,right=35,top=40,bottom=110;
- document.getElementById("k24Visual").innerHTML=k24SvgBase(w,h);
+ document.getElementById("k24Visual").innerHTML=k24SvgBase(w,h);document.getElementById("k24Visual").style.setProperty("--k26-label-scale",K24.labels);
  const max=Math.max(1,...roots.flatMap(r=>seq.map(t=>k24Value(r,t)))),x=i=>w-right-i*(w-left-right)/Math.max(1,seq.length-1),y=v=>h-bottom-v/max*(h-bottom-top);
  let s=Array.from({length:5},(_,i)=>{
   const v=max*i/4;return `<line x1="${left}" x2="${w-right}" y1="${y(v)}" y2="${y(v)}" stroke="#dfd9cc"/><text x="${left-8}" y="${y(v)+4}" text-anchor="end" font-size="11">${K24.metric==="coverage"?v.toFixed(0)+"%":v.toFixed(0)}</text>`;
@@ -501,7 +501,7 @@ function k24Flow(){
 }
 function k24Surface(){
  const roots=k24Active(),seq=k24Seq(),w=Math.max(1080,seq.length*66),h=640,x=i=>w-38-i*(w-76)/Math.max(1,seq.length-1),top=75,fh=480;
- document.getElementById("k24Visual").innerHTML=k24SvgBase(w,h);
+ document.getElementById("k24Visual").innerHTML=k24SvgBase(w,h);document.getElementById("k24Visual").style.setProperty("--k26-label-scale",K24.labels);
  let s="";
  seq.forEach((t,i)=>{
   const ps=k24Eligible(k24Sources(t)),width=(w-76)/Math.max(1,seq.length)-9,cx=x(i);
@@ -543,15 +543,27 @@ function k24Overlap(){
 function k24Draw(){
  if(!document.getElementById("k24Visual"))return;
  if(K24.view==="graph")k24Graph();else if(K24.view==="flow")k24Flow();else if(K24.view==="surface")k24Surface();else k24Overlap();
+ document.getElementById("k24Visual")?.style.setProperty("--k26-label-scale",K24.labels);
  k24InitControls();
+}
+
+// V2.6 repair: uniform magnification of the entire SVG, not only #k24Plot.
+function k24FitWholeMap(){
+ const svg=document.getElementById('k24Svg');if(!svg)return;
+ const z=K24.fullZoom||1;
+ svg.style.width=Math.round(z*100)+'%';svg.style.height='auto';svg.style.maxWidth='none';
+ svg.style.minWidth='0';svg.style.maxHeight='none';
+ svg.setAttribute('preserveAspectRatio','xMidYMid meet');
+ const control=document.querySelector('.k24-zoom-tools [data-k24-full-zoom]');
+ if(control)control.textContent=Math.round(z*100)+'%';
 }
 function k24WireZoom(){
  const svg=document.getElementById("k24Svg");if(!svg)return;
- const apply=()=>document.getElementById("k24Plot")?.setAttribute("transform",`translate(${K24.transform.x},${K24.transform.y}) scale(${K24.transform.k})`);
- apply();
+ const apply=()=>document.getElementById("k24Plot")?.setAttribute("transform",`translate(${K24.transform.x},${K24.transform.y})`);
+ K24.transform.k=1;k24FitWholeMap();apply();
  svg.addEventListener("wheel",e=>{
   if(!e.ctrlKey)return;e.preventDefault();
-  K24.transform.k=Math.min(4,Math.max(.45,K24.transform.k*(e.deltaY<0?1.1:.9)));apply();
+  K24.fullZoom=Math.min(4,Math.max(.6,Math.round((K24.fullZoom||1)*(e.deltaY<0?1.15:.87)*100)/100));k24FitWholeMap();apply();
  },{passive:false});
  let panning=null;
  svg.addEventListener("pointerdown",e=>{
@@ -710,9 +722,10 @@ document.addEventListener("click",e=>{
   if(document.getElementById("detail").open)k24EvidenceModal();else document.getElementById("k24Evidence").outerHTML=k24EvidenceHTML();return;
  }
  if(el.dataset.k24Zoom){
-  if(el.dataset.k24Zoom==="reset"){K24.transform={x:0,y:0,k:1};}
-  else K24.transform.k=Math.min(4,Math.max(.45,K24.transform.k*(el.dataset.k24Zoom==="in"?1.2:1/1.2)));
-  document.getElementById("k24Plot")?.setAttribute("transform",`translate(${K24.transform.x},${K24.transform.y}) scale(${K24.transform.k})`);return;
+  if(el.dataset.k24Zoom.startsWith("label-")){K24.labels=el.dataset.k24Zoom==="label-reset"?1.15:Math.min(2.4,Math.max(.8,K24.labels*(el.dataset.k24Zoom==="label-in"?1.17:1/1.17)));document.getElementById("k24Visual")?.style.setProperty("--k26-label-scale",K24.labels);return;}
+  if(el.dataset.k24Zoom==="reset"){K24.transform={x:0,y:0,k:1};K24.fullZoom=1;}
+  else K24.fullZoom=Math.min(4,Math.max(.6,Math.round((K24.fullZoom||1)*(el.dataset.k24Zoom==="in"?1.25:.8)*100)/100));
+  k24FitWholeMap();document.getElementById("k24Plot")?.setAttribute("transform",`translate(${K24.transform.x},${K24.transform.y})`);return;
  }
  if(el.dataset.k24SettingClick){K24[el.dataset.k24SettingClick]=el.dataset.value;K24.focus=null;K24.evidencePage=0;renderDistant();return;}
  if(el.dataset.k24Legacy){ST.lens=el.dataset.k24Legacy;v21OpenView("stage");return;}

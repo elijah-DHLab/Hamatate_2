@@ -1,6 +1,6 @@
 {
   "project": "המטאטא",
-  "version": "2.4",
+  "version": "2.6",
   "catalog": "corpus/data/corpus_index.json",
   "editionRegistry": "corpus/data/edition_registry.json",
   "defaultProduction": "A228401",
