@@ -3,6 +3,9 @@
 (function(){
 'use strict';
 const PAIRS=[
+["כיצד בנוי מודל הנתונים?","How is the data model structured?"],
+["כאן יופיע מידע על התיאטרון, הפרויקט והשותפים.","Information about the theatre, the project and its partners will appear here."],
+["מודל הנתונים","Data model"],
 ['המטאטא','HaMatate'],['הצגות, חומרים ומהדורות דיגיטליות','Performances, sources & digital editions'],
 ['ארכיון ההצגות','Performance archive'],['מחקר הקורפוס','Corpus research'],['אודות','About'],
 ['קריאת ההצגה','Read the play'],['החומרים והעדים','Sources & witnesses'],['מפת ההצגה','Performance map'],

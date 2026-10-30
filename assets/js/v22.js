@@ -1,7 +1,7 @@
  'use strict';
 /* V2.2: archive-first scholarly reader; never transforms the underlying corpus or XML. */
 const V22={aboutTab:'matate',showNotes:true,activeNote:null,activeTid:null,notesObserver:null};
-function v22AboutMarkup(){const tabs=[['matate','אודות המטאטא'],['project','אודות הפרויקט'],['partners','שותפים'],['knowledge','מפת הידע והשיטה']];return `<div class="v22-about"><section class="v22-about-hero"><span class="v21-eyebrow">מאחורי הארכיון</span><h1>אודות המטאטא</h1><p>כאן יופיע מידע על התיאטרון, הפרויקט והשותפים. מפת הידע וההסבר על מבנה הנתונים הועברו למרחב זה כדי שיישארו משותפים לכל ההצגות.</p></section><nav class="v22-about-nav" aria-label="אודות האתר">${tabs.map(([k,t])=>`<button data-v22-about="${k}" class="${V22.aboutTab===k?'on':''}">${t}</button>`).join('')}</nav><div class="v22-about-inner" id="v22AboutInner"></div></div>`}
+function v22AboutMarkup(){const tabs=[['matate','אודות המטאטא'],['project','אודות הפרויקט'],['partners','שותפים']];return `<div class="v22-about"><section class="v22-about-hero"><span class="v21-eyebrow">מאחורי הארכיון</span><h1>אודות המטאטא</h1><p>כאן יופיע מידע על התיאטרון, הפרויקט והשותפים.</p></section><nav class="v22-about-nav" aria-label="אודות האתר">${tabs.map(([k,t])=>`<button data-v22-about="${k}" class="${V22.aboutTab===k?'on':''}">${t}</button>`).join('')}</nav><div class="v22-about-inner" id="v22AboutInner"></div></div>`}
 function v22RenderAbout(){const main=document.getElementById('content');main.innerHTML=v22AboutMarkup();if(V22.aboutTab==='knowledge'){renderModel();const md=main.innerHTML;main.innerHTML=v22AboutMarkup();document.getElementById('v22AboutInner').innerHTML=md;const hero=document.querySelector('#v22AboutInner>.hero');if(hero)hero.style.display='none';}else{const t=({matate:'אודות המטאטא',project:'אודות הפרויקט',partners:'שותפים'})[V22.aboutTab];document.getElementById('v22AboutInner').innerHTML=`<section class="v22-about-placeholder"><span class="v21-eyebrow">${t}</span><h2>${t}</h2><p>התוכן יתווסף בהמשך.</p></section>`;}}
 const V22_RENDER=render;
 render=function(){if(STATE.view==='model'){STATE.view='about';V22.aboutTab='knowledge';}
@@ -14,7 +14,7 @@ const html=`<section class="v22-reading-entry"><div><span class="v22-entry-brow"
 hero.insertAdjacentHTML('afterend',html);
 const aside=main.querySelector('.reading-aside');if(aside){aside.insertAdjacentHTML('afterbegin',`<div class="panel v22-side-notes"><h3>הערות בשולי הקריאה</h3><label class="v22-aside-toggle"><input id="v22ShowNotes" type="checkbox" ${V22.showNotes?'checked':''}> הצגת הערות שוליים בטקסט ובשוליים</label><div class="v22-note-count" id="v22NoteCount"></div><div class="v22-note-list" id="v22NoteList"></div></div>`);}
 main.classList.toggle('v22-notes-on',V22.showNotes);main.classList.toggle('v22-notes-off',!V22.showNotes);
-main.querySelectorAll('[data-action="view"][data-value="model"]').forEach(b=>{b.textContent='כיצד בנוי מודל הידע? (אודות)'});
+main.querySelectorAll('[data-action="view"][data-value="model"]').forEach(b=>{b.textContent='כיצד בנוי מודל הנתונים?'});
 v22UpdateNotes(V22.activeTid||'A228401-T1');
 if(V22.notesObserver)V22.notesObserver.disconnect();
 V22.notesObserver=new IntersectionObserver(entries=>{const visible=entries.filter(x=>x.isIntersecting);if(visible.length){const tid=visible[0].target.dataset.tid;if(tid&&V22.activeTid!==tid){V22.activeTid=tid;v22UpdateNotes(tid);}}},{rootMargin:'-205px 0px -60% 0px',threshold:0});main.querySelectorAll('.text-segment[data-tid]').forEach(s=>V22.notesObserver.observe(s));}
@@ -42,6 +42,7 @@ const V22_OPEN=v21OpenView;
 v21OpenView=function(which,id){if(which==='model'||which==='about'){v22GoView(which);return;}V22_OPEN(which,id);};
 // About and network shortcuts run during capture, before older global handlers.
 document.addEventListener('click',e=>{const b=e.target.closest('[data-v22-about],[data-v22-map],[data-v22-network],[data-v22-note],[data-v22-note-close]');if(!b)return;e.preventDefault();e.stopImmediatePropagation();
+if(b.dataset.v22About==='knowledge'){v21OpenView('model');return;}
 if(b.dataset.v22About){V22.aboutTab=b.dataset.v22About;v22GoView('about');return;}
 if(b.dataset.v22Map){ST.lens=b.dataset.v22Map;v22GoView('stage');return;}
 if(b.dataset.v22Network){V2.selected.add(b.dataset.v22Network);ST.lens='content';v22GoView('stage');return;}
